@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<!--div id="s"></div-->
+<script>
+	window.onload = function() {
+var fontSize = 14
+var lineHeight = fontSize * 1.4
+var lineWidthInChars = 55
+var border = 10
+
+var resultLines = []
+
+resultLines.push("/start              Avvia il bot")
+resultLines.push("")
+resultLines.push("/info               Visualizza un'immagine con l'elenco")
+resultLines.push("                    dei comandi disponibili")
+resultLines.push("")
+resultLines.push("/scanlan            Ottieni la lista degli indirizzi IP")
+resultLines.push("                    dei dispositivi connessi alla tua")
+resultLines.push("                    rete locale")
+resultLines.push("")
+resultLines.push("/mylanip            Ottieni l'indirizzo IP LOCALE del")
+resultLines.push("                    server del bot")
+resultLines.push("")
+resultLines.push("/myextip            Ottieni l'indirizzo IP PUBBLICO")
+resultLines.push("                    della tua rete locale")
+
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+
+
+c.height = resultLines.length * lineHeight + border * 2
+
+
+ctx.font = fontSize + "px Courier New";
+c.width = ctx.measureText(" ").width * lineWidthInChars + border * 2
+
+ctx.fillStyle = "#000000"
+ctx.fillRect(0,0,c.width,c.height)
+
+ctx.font = fontSize + "px Courier New";
+ctx.fillStyle = "#ffffff"
+
+
+for (var i = 0; i < resultLines.length; i++) {
+  var line = resultLines[i];
+  ctx.fillText(line, border, border + fontSize + lineHeight * i);
+}
+
+window.location = c.toDataURL("image/png")
+}
+//document.getElementById("s").innerHTML = c.toDataURL()
+</script>
+
+</body>
+</html>
