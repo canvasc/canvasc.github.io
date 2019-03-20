@@ -6,7 +6,7 @@
 Your browser does not support the HTML5 canvas tag.</canvas>
 <!--div id="s"></div-->
 <script>
-	//window.onload = function() {
+	window.onload = function() {
 var fontSize = 14
 var lineHeight = fontSize * 1.4
 var lineWidthInChars = 55
@@ -53,8 +53,8 @@ for (var i = 0; i < resultLines.length; i++) {
   ctx.fillText(line, border, border + fontSize + lineHeight * i);
 }
 
-//window.location = c.toDataURL("image/png")
-//}
+window.location = c.toDataURL("image/png")
+}
 //document.getElementById("s").innerHTML = c.toDataURL()
 </script>
 
